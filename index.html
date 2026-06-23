@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Lluvia Azul Física Perfecta</title>
+  <title>Lluvia Azul Total - Física Perfecta</title>
   <style>
     body, html {
       margin: 0;
@@ -24,7 +24,7 @@
       z-index: 9999;
     }
 
-    /* ESTILO DE AGUA AZUL CRISTALINA GRUESA */
+    /* ESTILO PREMIUM: GOTAS AZULES CRISTALINAS GRUESAS */
     .drop {
       position: absolute;
       background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(34, 112, 230, 0.65) 60%, rgba(14, 165, 233, 0.95) 100%);
@@ -36,22 +36,22 @@
       animation: physicsFall linear infinite;
     }
 
-    /* FÍSICA CORREGIDA: Rotación a 15deg (acompaña la caída `\`) y desplazamiento negativo (hacia la izquierda) */
+    /* FÍSICA COHERENTE: Inclinación `\` y movimiento hacia abajo a la izquierda */
     @keyframes physicsFall {
       0% {
-        transform: translateY(-130px) translateX(250px) rotate(15deg);
+        transform: translateY(-130px) translateX(200px) rotate(15deg);
       }
       100% {
-        transform: translateY(105vh) translateX(-250px) rotate(15deg);
+        transform: translateY(105vh) translateX(-300px) rotate(15deg);
       }
     }
 
-    /* CAPAS DE GROSOR (ADELANTE, MEDIO, FONDO) */
+    /* CAPAS DE PROFUNDIDAD OPTIMIZADAS */
     .layer-front { width: 3.0px; height: 110px; opacity: 0.85; filter: drop-shadow(0 0 2px rgba(14, 165, 233, 0.5)); }
     .layer-mid { width: 1.8px; height: 80px; opacity: 0.55; }
     .layer-back { width: 0.9px; height: 50px; opacity: 0.25; filter: blur(0.5px); }
 
-    /* DISTRIBUCIÓN DE INTENSIDAD ASÍNCRONA */
+    /* DISTRIBUCIÓN ASÍNCRONA - INCLUYE EXTREMOS PARA PROTEGER LA ESQUINA IZQUIERDA */
     .d1  { left: 5%;   animation-duration: 0.45s; animation-delay: 0.0s; }
     .d2  { left: 12%;  animation-duration: 0.58s; animation-delay: 0.3s; }
     .d3  { left: 18%;  animation-duration: 0.50s; animation-delay: 0.1s; }
@@ -65,7 +65,7 @@
     .d11 { left: 78%;  animation-duration: 0.44s; animation-delay: 0.2s; }
     .d12 { left: 85%;  animation-duration: 0.57s; animation-delay: 0.4s; }
     .d13 { left: 92%;  animation-duration: 0.48s; animation-delay: 0.1s; }
-    .d14 { left: 105%; animation-duration: 0.54s; animation-delay: 0.3s; }
+    .d14 { left: 100%; animation-duration: 0.54s; animation-delay: 0.3s; }
 
     .d15 { left: 2%;   animation-duration: 0.82s; animation-delay: 0.1s; }
     .d16 { left: 9%;   animation-duration: 0.92s; animation-delay: 0.5s; }
@@ -80,7 +80,7 @@
     .d25 { left: 73%;  animation-duration: 0.84s; animation-delay: 0.2s; }
     .d26 { left: 81%;  animation-duration: 1.08s; animation-delay: 0.8s; }
     .d27 { left: 89%;  animation-duration: 0.89s; animation-delay: 0.0s; }
-    .d28 { left: 102%; animation-duration: 0.98s; animation-delay: 0.4s; }
+    .d28 { left: 98%;  animation-duration: 0.98s; animation-delay: 0.4s; }
 
     .d29 { left: 4%;   animation-duration: 1.35s; animation-delay: 0.3s; }
     .d30 { left: 11%;  animation-duration: 1.60s; animation-delay: 0.8s; }
@@ -95,22 +95,31 @@
     .d39 { left: 84%;  animation-duration: 1.38s; animation-delay: 0.1s; }
     .d40 { left: 95%;  animation-duration: 1.62s; animation-delay: 0.6s; }
 
-    .ext1 { left: 5%;  animation-duration: 0.48s; animation-delay: 0.2s; }
-    .ext2 { left: 25%; animation-duration: 0.54s; animation-delay: 0.1s; }
-    .ext3 { left: 40%; animation-duration: 0.42s; animation-delay: 0.3s; }
-    .ext4 { left: 55%; animation-duration: 0.58s; animation-delay: 0.0s; }
-    .ext5 { left: 70%; animation-duration: 0.49s; animation-delay: 0.4s; }
-    .ext6 { left: 85%; animation-duration: 0.45s; animation-delay: 0.2s; }
-    .ext7 { left: 20%; animation-duration: 0.88s; animation-delay: 0.3s; }
-    .ext8 { left: 45%; animation-duration: 0.96s; animation-delay: 0.5s; }
-    .ext9 { left: 70%; animation-duration: 0.83s; animation-delay: 0.1s; }
-    .ext10{ left: 90%; animation-duration: 1.05s; animation-delay: 0.6s; }
+    /* GOTAS DESFASADAS A LA DERECHA (ENTRAN VOLANDO PARA LLENAR LA ESQUINA SUPERIOR IZQUIERDA) */
+    .corner1 { left: 105%; animation-duration: 0.46s; animation-delay: 0.1s; }
+    .corner2 { left: 110%; animation-duration: 0.52s; animation-delay: 0.4s; }
+    .corner3 { left: 115%; animation-duration: 0.38s; animation-delay: 0.2s; }
+    .corner4 { left: 120%; animation-duration: 0.60s; animation-delay: 0.5s; }
+    .corner5 { left: 125%; animation-duration: 0.42s; animation-delay: 0.0s; }
+    .corner6 { left: 130%; animation-duration: 0.55s; animation-delay: 0.3s; }
+    .corner7 { left: 135%; animation-duration: 0.49s; animation-delay: 0.15s; }
+    .corner8 { left: 140%; animation-duration: 0.51s; animation-delay: 0.25s; }
+
+    .corner9 { left: 108%; animation-duration: 0.85s; animation-delay: 0.3s; }
+    .corner10{ left: 116%; animation-duration: 0.94s; animation-delay: 0.1s; }
+    .corner11{ left: 124%; animation-duration: 1.02s; animation-delay: 0.5s; }
+    .corner12{ left: 136%; animation-duration: 0.88s; animation-delay: 0.2s; }
+
+    .corner13{ left: 106%; animation-duration: 1.42s; animation-delay: 0.4s; }
+    .corner14{ left: 118%; animation-duration: 1.55s; animation-delay: 0.1s; }
+    .corner15{ left: 128%; animation-duration: 1.32s; animation-delay: 0.7s; }
+    .corner16{ left: 138%; animation-duration: 1.65s; animation-delay: 0.3s; }
   </style>
 </head>
 <body>
 
   <div class="rain-matrix">
-    <!-- CAPA FRONTAL -->
+    <!-- CAPA FRONTAL (MÁXIMA DENSIDAD + ESQUINAS) -->
     <div class="drop layer-front d1"></div>  <div class="drop layer-front d2"></div>
     <div class="drop layer-front d3"></div>  <div class="drop layer-front d4"></div>
     <div class="drop layer-front d5"></div>  <div class="drop layer-front d6"></div>
@@ -118,9 +127,10 @@
     <div class="drop layer-front d9"></div>  <div class="drop layer-front d10"></div>
     <div class="drop layer-front d11"></div> <div class="drop layer-front d12"></div>
     <div class="drop layer-front d13"></div> <div class="drop layer-front d14"></div>
-    <div class="drop layer-front ext1"></div><div class="drop layer-front ext2"></div>
-    <div class="drop layer-front ext3"></div><div class="drop layer-front ext4"></div>
-    <div class="drop layer-front ext5"></div><div class="drop layer-front ext6"></div>
+    <div class="drop layer-front corner1"></div><div class="drop layer-front corner2"></div>
+    <div class="drop layer-front corner3"></div><div class="drop layer-front corner4"></div>
+    <div class="drop layer-front corner5"></div><div class="drop layer-front corner6"></div>
+    <div class="drop layer-front corner7"></div><div class="drop layer-front corner8"></div>
 
     <!-- CAPA MEDIA -->
     <div class="drop layer-mid d15"></div> <div class="drop layer-mid d16"></div>
@@ -130,7 +140,8 @@
     <div class="drop layer-mid d23"></div> <div class="drop layer-mid d24"></div>
     <div class="drop layer-mid d25"></div> <div class="drop layer-mid d26"></div>
     <div class="drop layer-mid d27"></div> <div class="drop layer-mid d28"></div>
-    <div class="drop layer-mid ext7"></div><div class="drop layer-mid ext8"></div>
+    <div class="drop layer-mid corner9"></div> <div class="drop layer-mid corner10"></div>
+    <div class="drop layer-mid corner11"></div><div class="drop layer-mid corner12"></div>
 
     <!-- CAPA PROFUNDA -->
     <div class="drop layer-back d29"></div> <div class="drop layer-back d30"></div>
@@ -139,7 +150,8 @@
     <div class="drop layer-back d35"></div> <div class="drop layer-back d36"></div>
     <div class="drop layer-back d37"></div> <div class="drop layer-back d38"></div>
     <div class="drop layer-back d39"></div> <div class="drop layer-back d40"></div>
-    <div class="drop layer-back ext9"></div><div class="drop layer-back ext10"></div>
+    <div class="drop layer-back corner13"></div><div class="drop layer-back corner14"></div>
+    <div class="drop layer-back corner15"></div><div class="drop layer-back corner16"></div>
   </div>
 
 </body>
