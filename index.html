@@ -1,51 +1,78 @@
-<!-- CONTENEDOR 100% TRANSPARENTE -->
-<div id="particles-container" style="width: 250px; height: 200px; background: transparent; position: relative; overflow: hidden; border-radius: 12px;"></div>
-
-<!-- CARGA DEL SCRIPT DESDE UN CDN LIMPIO -->
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
-<script>
-  // Esperar a que el script de partículas se cargue en Genially
-  function initParticles() {
-    if (typeof particlesJS !== 'undefined') {
-      particlesJS('particles-container', {
-        "particles": {
-          "number": { "value": 40, "density": { "enable": false } },
-          "color": { "value": "#c59218" }, /* Dorado como tus títulos */
-          "shape": { "type": "circle" },
-          "opacity": { "value": 0.6, "random": true },
-          "size": { "value": 3, "random": true },
-          "line_linked": {
-            "enable": true,
-            "distance": 90,
-            "color": "#c59218", /* Líneas doradas delgadas */
-            "opacity": 0.4,
-            "width": 1
-          },
-          "move": {
-            "enable": true,
-            "speed": 1.5,
-            "direction": "none",
-            "random": true,
-            "straight": false,
-            "out_mode": "out"
-          }
-        },
-        "interactivity": {
-          "detect_on": "canvas",
-          "events": {
-            "onhover": { "enable": true, "mode": "grab" },
-            "onclick": { "enable": false }
-          },
-          "modes": {
-            "grab": { "distance": 100, "line_linked": { "opacity": 0.8 } }
-          }
-        },
-        "retina_detect": true
-      });
-    } else {
-      setTimeout(initParticles, 100);
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Efecto de Lluvia</title>
+  <style>
+    /* CONTENEDOR INVISIBLE QUE OCUPA TODA LA PANTALLA */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: transparent;
     }
-  }
-  initParticles();
-</script>
+
+    .rain-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: transparent;
+      pointer-events: none; /* Permite hacer clic a través de la lluvia */
+      z-index: 9999;
+    }
+
+    /* ESTILO DE CADA GOTA DE LLUVIA */
+    .drop {
+      position: absolute;
+      background: linear-gradient(transparent, rgba(197, 146, 24, 0.4)); /* Tono dorado translúcido de tus títulos */
+      width: 1px;
+      height: 60px;
+      opacity: 0.7;
+      animation: fall linear infinite;
+    }
+
+    /* ANIMACIÓN DE CAÍDA VERTICAL */
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+
+    /* VARIACIONES DE VELOCIDAD Y POSICIÓN PARA CREAR PROFUNDIDAD */
+    .drop:nth-child(1) { left: 5%;  animation-duration: 0.6s; animation-delay: 0s;   width: 1.5px; height: 80px; opacity: 0.4; }
+    .drop:nth-child(2) { left: 15%; animation-duration: 0.9s; animation-delay: 0.2s;  height: 50px; opacity: 0.6; }
+    .drop:nth-child(3) { left: 28%; animation-duration: 0.7s; animation-delay: 0.5s;  width: 1.2px; height: 70px; opacity: 0.5; }
+    .drop:nth-child(4) { left: 38%; animation-duration: 1.1s; animation-delay: 0.1s;  height: 40px; opacity: 0.3; }
+    .drop:nth-child(5) { left: 48%; animation-duration: 0.8s; animation-delay: 0.7s;  width: 1.6px; height: 75px; opacity: 0.6; }
+    .drop:nth-child(6) { left: 58%; animation-duration: 0.6s; animation-delay: 0.3s;  height: 60px; opacity: 0.5; }
+    .drop:nth-child(7) { left: 68%; animation-duration: 1s;   animation-delay: 0.6s;  width: 1px;   height: 45px; opacity: 0.4; }
+    .drop:nth-child(8) { left: 78%; animation-duration: 0.7s; animation-delay: 0.2s;  width: 1.4px; height: 80px; opacity: 0.7; }
+    .drop:nth-child(9) { left: 88%; animation-duration: 0.9s; animation-delay: 0.4s;  height: 55px; opacity: 0.3; }
+    .drop:nth-child(10){ left: 95%; animation-duration: 0.5s; animation-delay: 0.8s;  width: 1.8px; height: 90px; opacity: 0.5; }
+  </style>
+</head>
+<body>
+
+  <!-- MATRIZ DE GOTAS DE LLUVIA -->
+  <div class="rain-container">
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+    <div class="drop"></div>
+  </div>
+
+</body>
+</html>
