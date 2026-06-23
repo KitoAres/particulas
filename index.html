@@ -2,9 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Efecto de Lluvia</title>
+  <title>Tormenta Realista - Nuevas Raíces</title>
   <style>
-    /* CONTENEDOR INVISIBLE QUE OCUPA TODA LA PANTALLA */
     body, html {
       margin: 0;
       padding: 0;
@@ -14,64 +13,130 @@
       background: transparent;
     }
 
-    .rain-container {
+    .rain-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
       background: transparent;
-      pointer-events: none; /* Permite hacer clic a través de la lluvia */
+      pointer-events: none;
       z-index: 9999;
     }
 
-    /* ESTILO DE CADA GOTA DE LLUVIA */
+    /* ESTILO BASE CON INCLINACIÓN POR VIENTO (14 GRADOS) */
     .drop {
       position: absolute;
-      background: linear-gradient(transparent, rgba(197, 146, 24, 0.4)); /* Tono dorado translúcido de tus títulos */
+      background: linear-gradient(transparent, rgba(197, 146, 24, 0.45)); /* Destellos dorados cálidos */
       width: 1px;
-      height: 60px;
-      opacity: 0.7;
+      height: 70px;
+      opacity: 0.6;
+      transform: rotate(-14deg);
       animation: fall linear infinite;
     }
 
-    /* ANIMACIÓN DE CAÍDA VERTICAL */
+    /* ANIMACIÓN NATURAL TRASLADADA */
     @keyframes fall {
       0% {
-        transform: translateY(-100px);
+        transform: translateY(-120px) translateX(40px) rotate(-14deg);
       }
       100% {
-        transform: translateY(100vh);
+        transform: translateY(105vh) translateX(-150px) rotate(-14deg);
       }
     }
 
-    /* VARIACIONES DE VELOCIDAD Y POSICIÓN PARA CREAR PROFUNDIDAD */
-    .drop:nth-child(1) { left: 5%;  animation-duration: 0.6s; animation-delay: 0s;   width: 1.5px; height: 80px; opacity: 0.4; }
-    .drop:nth-child(2) { left: 15%; animation-duration: 0.9s; animation-delay: 0.2s;  height: 50px; opacity: 0.6; }
-    .drop:nth-child(3) { left: 28%; animation-duration: 0.7s; animation-delay: 0.5s;  width: 1.2px; height: 70px; opacity: 0.5; }
-    .drop:nth-child(4) { left: 38%; animation-duration: 1.1s; animation-delay: 0.1s;  height: 40px; opacity: 0.3; }
-    .drop:nth-child(5) { left: 48%; animation-duration: 0.8s; animation-delay: 0.7s;  width: 1.6px; height: 75px; opacity: 0.6; }
-    .drop:nth-child(6) { left: 58%; animation-duration: 0.6s; animation-delay: 0.3s;  height: 60px; opacity: 0.5; }
-    .drop:nth-child(7) { left: 68%; animation-duration: 1s;   animation-delay: 0.6s;  width: 1px;   height: 45px; opacity: 0.4; }
-    .drop:nth-child(8) { left: 78%; animation-duration: 0.7s; animation-delay: 0.2s;  width: 1.4px; height: 80px; opacity: 0.7; }
-    .drop:nth-child(9) { left: 88%; animation-duration: 0.9s; animation-delay: 0.4s;  height: 55px; opacity: 0.3; }
-    .drop:nth-child(10){ left: 95%; animation-duration: 0.5s; animation-delay: 0.8s;  width: 1.8px; height: 90px; opacity: 0.5; }
+    /* CAPA 1: GOTAS EN PRIMER PLANO (RÁPIDAS Y GRANDES) */
+    .d-front { width: 1.8px; height: 95px; opacity: 0.7; filter: drop-shadow(0 0 2px rgba(255,255,255,0.2)); }
+    /* CAPA 2: GOTAS MEDIAS (ESTÁNDAR) */
+    .d-mid { width: 1.2px; height: 65px; opacity: 0.5; }
+    /* CAPA 3: LLUVIA DE FONDO (LENTA Y DESENFOCADA) */
+    .d-back { width: 0.8px; height: 45px; opacity: 0.3; filter: blur(1px); }
+
+    /* DISTRIBUCIÓN MATRICIAL SIN REPETICIÓN VISUAL */
+    .dr1  { left: 3%;  bottom: 100%; animation-duration: 0.55s; animation-delay: 0.1s; }
+    .dr2  { left: 8%;  bottom: 100%; animation-duration: 0.75s; animation-delay: 0.4s; }
+    .dr3  { left: 14%; bottom: 100%; animation-duration: 0.62s; animation-delay: 0.2s; }
+    .dr4  { left: 19%; bottom: 100%; animation-duration: 0.85s; animation-delay: 0.6s; }
+    .dr5  { left: 24%; bottom: 100%; animation-duration: 0.50s; animation-delay: 0.0s; }
+    .dr6  { left: 31%; bottom: 100%; animation-duration: 0.68s; animation-delay: 0.3s; }
+    .dr7  { left: 36%; bottom: 100%; animation-duration: 0.90s; animation-delay: 0.7s; }
+    .dr8  { left: 42%; bottom: 100%; animation-duration: 0.58s; animation-delay: 0.1s; }
+    .dr9  { left: 47%; bottom: 100%; animation-duration: 0.72s; animation-delay: 0.5s; }
+    .dr10 { left: 53%; bottom: 100%; animation-duration: 0.60s; animation-delay: 0.2s; }
+    .dr11 { left: 59%; bottom: 100%; animation-duration: 0.80s; animation-delay: 0.8s; }
+    .dr12 { left: 64%; bottom: 100%; animation-duration: 0.52s; animation-delay: 0.0s; }
+    .dr13 { left: 70%; bottom: 100%; animation-duration: 0.66s; animation-delay: 0.4s; }
+    .dr14 { left: 76%; bottom: 100%; animation-duration: 0.88s; animation-delay: 0.6s; }
+    .dr15 { left: 82%; bottom: 100%; animation-duration: 0.54s; animation-delay: 0.1s; }
+    .dr16 { left: 87%; bottom: 100%; animation-duration: 0.70s; animation-delay: 0.3s; }
+    .dr17 { left: 93%; bottom: 100%; animation-duration: 0.64s; animation-delay: 0.5s; }
+    .dr18 { left: 98%; bottom: 100%; animation-duration: 0.78s; animation-delay: 0.2s; }
+    
+    .dr19 { left: 5%;  bottom: 100%; animation-duration: 1.10s; animation-delay: 0.3s; }
+    .dr20 { left: 11%; bottom: 100%; animation-duration: 1.30s; animation-delay: 0.7s; }
+    .dr21 { left: 17%; bottom: 100%; animation-duration: 1.05s; animation-delay: 0.1s; }
+    .dr22 { left: 22%; bottom: 100%; animation-duration: 1.40s; animation-delay: 0.5s; }
+    .dr23 { left: 28%; bottom: 100%; animation-duration: 1.15s; animation-delay: 0.2s; }
+    .dr24 { left: 34%; bottom: 100%; animation-duration: 1.25s; animation-delay: 0.9s; }
+    .dr25 { left: 40%; bottom: 100%; animation-duration: 1.00s; animation-delay: 0.0s; }
+    .dr26 { left: 45%; bottom: 100%; animation-duration: 1.35s; animation-delay: 0.4s; }
+    .dr27 { left: 51%; bottom: 100%; animation-duration: 1.20s; animation-delay: 0.6s; }
+    .dr28 { left: 56%; bottom: 100%; animation-duration: 1.08s; animation-delay: 0.1s; }
+    .dr29 { left: 62%; bottom: 100%; animation-duration: 1.45s; animation-delay: 0.8s; }
+    .dr30 { left: 68%; bottom: 100%; animation-duration: 1.12s; animation-delay: 0.3s; }
+    .dr31 { left: 73%; bottom: 100%; animation-duration: 1.28s; animation-delay: 0.5s; }
+    .dr32 { left: 79%; bottom: 100%; animation-duration: 1.02s; animation-delay: 0.0s; }
+    .dr33 { left: 85%; bottom: 100%; animation-duration: 1.38s; animation-delay: 0.7s; }
+    .dr34 { left: 90%; bottom: 100%; animation-duration: 1.18s; animation-delay: 0.2s; }
+    
+    .dr35 { left: 2%;  bottom: 100%; animation-duration: 1.70s; animation-delay: 0.5s; }
+    .dr36 { left: 9%;  bottom: 100%; animation-duration: 1.95s; animation-delay: 0.9s; }
+    .dr37 { left: 16%; bottom: 100%; animation-duration: 1.60s; animation-delay: 0.1s; }
+    .dr38 { left: 25%; bottom: 100%; animation-duration: 1.85s; animation-delay: 0.4s; }
+    .dr39 { left: 33%; bottom: 100%; animation-duration: 1.65s; animation-delay: 0.7s; }
+    .dr40 { left: 39%; bottom: 100%; animation-duration: 2.10s; animation-delay: 0.2s; }
+    .dr41 { left: 46%; bottom: 100%; animation-duration: 1.55s; animation-delay: 0.0s; }
+    .dr42 { left: 52%; bottom: 100%; animation-duration: 1.90s; animation-delay: 0.6s; }
+    .dr43 { left: 60%; bottom: 100%; animation-duration: 1.75s; animation-delay: 0.3s; }
+    .dr44 { left: 67%; bottom: 100%; animation-duration: 2.00s; animation-delay: 0.8s; }
+    .dr45 { left: 74%; bottom: 100%; animation-duration: 1.50s; animation-delay: 0.1s; }
+    .dr46 { left: 81%; bottom: 100%; animation-duration: 1.80s; animation-delay: 0.5s; }
+    .dr47 { left: 88%; bottom: 100%; animation-duration: 1.68s; animation-delay: 0.2s; }
+    .dr48 { left: 96%; bottom: 100%; animation-duration: 2.05s; animation-delay: 0.7s; }
   </style>
 </head>
 <body>
 
-  <!-- MATRIZ DE GOTAS DE LLUVIA -->
-  <div class="rain-container">
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
-    <div class="drop"></div>
+  <div class="rain-screen">
+    <!-- CAPA FRONTAL (RÁPIDA) -->
+    <div class="drop d-front dr1"></div> <div class="drop d-front dr2"></div>
+    <div class="drop d-front dr3"></div> <div class="drop d-front dr4"></div>
+    <div class="drop d-front dr5"></div> <div class="drop d-front dr6"></div>
+    <div class="drop d-front dr7"></div> <div class="drop d-front dr8"></div>
+    <div class="drop d-front dr9"></div> <div class="drop d-front dr10"></div>
+    <div class="drop d-front dr11"></div><div class="drop d-front dr12"></div>
+    <div class="drop d-front dr13"></div><div class="drop d-front dr14"></div>
+    <div class="drop d-front dr15"></div><div class="drop d-front dr16"></div>
+    <div class="drop d-front dr17"></div><div class="drop d-front dr18"></div>
+
+    <!-- CAPA MEDIA -->
+    <div class="drop d-mid dr19"></div> <div class="drop d-mid dr20"></div>
+    <div class="drop d-mid dr21"></div> <div class="drop d-mid dr22"></div>
+    <div class="drop d-mid dr23"></div> <div class="drop d-mid dr24"></div>
+    <div class="drop d-mid dr25"></div> <div class="drop d-mid dr26"></div>
+    <div class="drop d-mid dr27"></div> <div class="drop d-mid dr28"></div>
+    <div class="drop d-mid dr29"></div> <div class="drop d-mid dr30"></div>
+    <div class="drop d-mid dr31"></div> <div class="drop d-mid dr32"></div>
+    <div class="drop d-mid dr33"></div> <div class="drop d-mid dr34"></div>
+
+    <!-- CAPA PROFUNDA (LENTA / BLUR) -->
+    <div class="drop d-back dr35"></div> <div class="drop d-back dr36"></div>
+    <div class="drop d-back dr37"></div> <div class="drop d-back dr38"></div>
+    <div class="drop d-back dr39"></div> <div class="drop d-back dr40"></div>
+    <div class="drop d-back dr41"></div> <div class="drop d-back dr42"></div>
+    <div class="drop d-back dr43"></div> <div class="drop d-back dr44"></div>
+    <div class="drop d-back dr45"></div> <div class="drop d-back dr46"></div>
+    <div class="drop d-back dr47"></div> <div class="drop d-back dr48"></div>
   </div>
 
 </body>
